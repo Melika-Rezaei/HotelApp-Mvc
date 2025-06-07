@@ -1,0 +1,41 @@
+﻿@page
+@model HotelApp_Mvc.Controllers.EditModel
+
+<h4>Discount</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Discount.DiscountID" />
+            <div class="form-group">
+                <label asp-for="Discount.DiscountCode" class="control-label"></label>
+                <input asp-for="Discount.DiscountCode" class="form-control" />
+                <span asp-validation-for="Discount.DiscountCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Discount.FinishDate" class="control-label"></label>
+                <input asp-for="Discount.FinishDate" class="form-control" />
+                <span asp-validation-for="Discount.FinishDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Discount.DisPercent" class="control-label"></label>
+                <input asp-for="Discount.DisPercent" class="form-control" />
+                <span asp-validation-for="Discount.DisPercent" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Discount.DiscountEnabled" /> @Html.DisplayNameFor(model => model.Discount.DiscountEnabled)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+

@@ -1,0 +1,50 @@
+﻿@model HotelApp_Mvc.Models.Dbase.Reserve
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+<div class="py-3">
+        <h1>رزرو اتاق </h1>
+        <p>برای انجام عملیات رزرو، لطفا فرم زیر را تایید بفرمایید .</p>
+</div>
+<hr />
+<div class="row justify-content-center">
+    <div class="col-md-4" onload="displayvalues()">
+            <form asp-action="RoomReserve">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group py-3">
+                <label asp-for="ReservePrice" class="control-label"> هزینه ی رزرو : </label>
+                <input asp-for="ReservePrice" class="form-control" id="ResPrice" value=""  />
+                <span asp-validation-for="ReservePrice" class="text-danger"></span>
+            </div>
+            <div class="form-group py-3">
+                <label asp-for="ReserveCap" class="control-label"> تعداد افراد :  </label>
+                <input asp-for="ReserveCap" class="form-control" id="ResCap" value=""  />
+                <span asp-validation-for="ReserveCap" class="text-danger"></span>
+            </div>
+            <div class="form-group py-3">
+                <label asp-for="checkInDate" class="control-label"> تاریخ شروع اقامت : </label>
+                <input asp-for="checkInDate" class="form-control" id="chIn1" value=""  />
+                <span asp-validation-for="checkInDate" class="text-danger"></span>
+            </div>
+            <div class="form-group py-3">
+                <label asp-for="checkOutDate" class="control-label"> تاریخ پایان اقامت : </label>
+                <input asp-for="checkOutDate" class="form-control" id="chOut1" value=""  />
+                <span asp-validation-for="checkOutDate" class="text-danger"></span>
+            </div>
+            <div class="form-group text-center py-4">
+                    <input type="submit" value="RoomReserve" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<HotelApp_Mvc.Models.Dbase.Rooms>
+
+@{
+    ViewData["Title"] = "RoomsList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <div class="pb-3">
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center">
+                <h2 class="fw-bold mt-5"> اتاق ها </h2>
+                <p>
+                    چشم انداز همه اتاق‌های این هتل به گونه ای است که شما نظاره گر نمای زیبای دریا و ساحل زیبایی آن بوده و یا افق زیبای جزیره در منظر دیدگان شماست.
+                </p>
+                <i class="bi bi-arrow-down-circle-fill fs-1"></i>
+
+            </div>
+            <div class="col-md-6">
+                <img class="img-fluid mt-5" src="../img/3894241.jpg" alt="">
+            </div>
+        </div>
+    </div>
+
+</div>
+<div style="height: 150px; overflow: hidden;">
+    <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+        <path d="M0.00,49.99 C238.37,112.99 237.25,36.01 500.00,49.99 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #f8f9fa;"></path>
+    </svg>
+</div>
+
+<section class="bg-light ">
+    <div class="container flex">
+        <div class="row g-4 align-items-center text-center">
+            <p class="fw-bold fs-2"> لیست اتاق های هتل <i class="bi bi-arrow-down-circle"></i> </p>
+            <p> در اینجا می توانید لیست کامل اتاق ها را مشاهده نمایید. برای مشاهده ی امکانات و رزرو اتاق روی گزینه ی "جزئیات" کلیک کنید. </p>
+        </div>
+        <div class="row text-center">
+@*            <div class=" col-12 col-md-6 col-lg-4">
+                <div class="shadow border rounded card-body col-11 py-4 my-3">
+                    <img class="col-7" src="../img/Dream_Two Color.svg" alt="">
+                    <h5 class="card-title fw-bold mb-4">  سوییت برای سه نفر </h5>
+                    <p class="card-text text-muted"> اقامت با صبحانه </p>
+                    <p class="card-text text-muted"> ظرفیت نفر اضافه دارد </p>
+                    <p class="card-text text-muted"> قیمت: 1,200,000T </p>
+                    <a class="btn btn-primary px-4 py-2" asp-controller="Home" asp-action="Rooms"> جزئیات </a>
+                </div>
+            </div>*@
+
+            @foreach (var item in Model)
+            {
+                <div class=" col-12 col-md-6 col-lg-4">
+                    <div class="shadow border rounded card-body col-11 py-4 my-3">
+                        <img class="col-7" src="../img/Dream_Two Color.svg" alt="">
+                        <h5 class="card-title fw-bold mb-4">  @Html.DisplayFor(modelItem => item.RoomType) </h5>
+                        <p class="card-text text-muted"> اقامت با صبحانه </p>
+                        <p class="card-text text-muted"> ظرفیت : <span>@Html.DisplayFor(modelItem => item.RoomCapacity)</span> </p>
+                        <p class="card-text text-muted"> <span>قیمت : </span> @Html.DisplayFor(modelItem => item.RoomPrice) </p>
+                        <a class="btn btn-primary px-4 py-2" asp-controller="Rooms" asp-action="RoomDetail" asp-route-id="@item.RoomsID"> جزئیات </a>
+                    </div>
+                </div>
+            }
+
+
+
+        </div>
+    </div>
+</section>

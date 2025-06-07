@@ -1,0 +1,266 @@
+﻿@model HotelApp_Mvc.Models.Dbase.Rooms
+@*@model HotelApp_Mvc.Models.Dbase.Reserve*@
+@{
+    ViewData["Title"] = "RoomDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+   
+}
+@*@{
+    var roomId = (int)TempData["RoomID"];
+    var roomPrice = (long)TempData["RoomPrice"];
+}*@
+<div class="container pt-3">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb breadcrumb-chevron p-3 bg-cold-blue rounded-3">
+            <li class="breadcrumb-item ">
+                <a class="link-body-emphasis text-decoration-none text-dark" asp-controller="Home" asp-action="index">
+                    صفحه اصلی
+                </a>
+            </li>
+            <li class="breadcrumb-item">
+                <a class="link-body-emphasis text-primary fw-semibold text-decoration-none" asp-controller="Rooms" asp-action="RoomList">اتاق ها</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+                جزئیات اتاق
+            </li>
+        </ol>
+    </nav>
+</div>
+
+<div class="container pt-3 text-center">
+    <div class="text-start py-3 fw-bold">
+        <h3>اتاق <span>@Html.DisplayFor(model => model.RoomType)</span></h3>
+    </div>
+ @*   <div class="justify-content-center text-center row">
+        <div class="col col-md-9 ">
+            <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img width="800" height="400" src="~/img/room1-1.jpg" class="d-block " alt="room">
+                    </div>
+                    <div class="carousel-item">
+                        <img width="800px" height="400px" src="~/img/room1-2.jpg" class="d-block " alt="room">
+                    </div>
+                    <div class="carousel-item">
+                        <img width="800px" height="400px" src="~/img/room1-3.jpg" class="d-block " alt="room">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+                       <img src="./img/room1-1.jpg"/>
+            <img src="../img/room1-1.jpg" />
+            <img src=".././img/room1-1.jpg" />
+
+
+        </div>
+    </div>*@
+@*    <div class="row">
+        <div class="col-4">
+            <img width="300px" height="800px" src="~/img/room1-1.jpg" />
+        </div>
+        <div class="col-8">
+            <div class="row">
+                <div class="col-12"> <img src="~/img/room1-2.jpg" /> </div>
+            </div>
+            <div class="row">
+                <div class="col-6"> <img src="~/img/room1-3.jpg" /> </div>
+                <div class="col-6"> <img src="~/img/room1-1.jpg" /> </div>
+            </div>
+        </div>
+    </div>*@
+</div>
+
+
+
+
+
+<div style="height: 150px; overflow: hidden;">
+    <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+        <path d="M0.00,49.99 C238.37,112.99 237.25,36.01 500.00,49.99 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #f8f9fa;"></path>
+    </svg>
+</div>
+
+<div class="bg-light">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-12 col-md-8 ">
+                <div class="card bg-light text-start">
+                    <div class="card-body">
+                        <h5 class="card-title fs-2 fw-bold">اتاق <span>@Html.DisplayFor(model => model.RoomType)</span></h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary text-secondary">مناسب برای اقامت <span>@Html.DisplayFor(model => model.RoomCapacity)</span> نفر</h6>
+                        <div class="fs-6 mt-4">
+                            <p>اتاق هتل ما دارای فضایی است که برای اقامت راحت و آسوده شما ساخته شده است. اتاقی با ابعاد مناسب و مقاوم در برابر زلزله طراحی شده است تا به شما امکان اقامتی راحت و آسوده را بدهد. </p>
+                            <p>این اتاق مجهز به تمام امکانات لازم برای اقامت شما است. در این اتاق، شما یک تلویزیون ال سی دی با صفحه نمایش بزرگ، یک مینی بار، یک میز کار و صندلی را خواهید دید. همچنین، در این اتاق یک سرویس قابل حمل قرار داده شده است که به شما اجازه می‌دهد در هر زمان نوشیدنی‌های خنک و خوراکی‌های سبک را در دسترس داشته باشید.</p>
+                            <p>این اتاق دارای پنجره‌های بزرگی است که به نور طبیعی و منظره‌ای زیبا نفوذ می‌کند. این پنجره‌ها قابل باز شدن هستند تا شما بتوانید هوای تازه را در اتاق خود تجربه کنید.   </p>
+                            <p>بعلاوه، در این اتاق امکانات دیگری نظیر تلفن، سشوار، صندوق امانات و سرویس روزانه نظافت نیز فراهم شده است.</p>
+                        </div>
+                        <div class="my-5">
+                            <span>قیمت (به ازای هر شب) : </span>
+                            <span class="text-primary" id="roomprice" >@Html.DisplayFor(model => model.RoomPrice)</span>
+                            <span class="text-secondary">تومان</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 ">
+                <div>
+                    <div class="row card">
+                        <div class="card-body">
+                            <h5 class="card-title text-warning text-decoration-underline">اتاق <span>@Html.DisplayFor(model => model.RoomType)</span></h5>
+                            <form asp-action="Payment" method="post">
+                              <input type="hidden" name="" value="@Model.RoomsID"/>
+                            <div class="text-start mt-3">
+                                 <label for="StartTime"> تاریخ شروع اقامت</label>
+                                    <input name="checkInDate" type='date' class="form-control" id="StartTime" onchange="TimeFunc()" />
+                            </div>
+                            <div class="text-start mt-3">
+                                <label for="EndTime">تاریخ پایان اقامت </label>
+                                    <input name="checkOutDate" type='date' class="form-control" id="EndTime" onchange="TimeFunc()" />
+                            </div>
+                            <div class="text-start mt-3">
+                                <label for="days"> تعداد روزها </label>
+                                <input class="text-end form-control" type="text" id="days" value="" aria-label="2000" readonly>
+                                @*<input type='text' class="form-control" id="days" />*@
+                            </div>
+
+                            <div class="text-start pb-3 mt-4">
+                                <label for="">تعداد افراد بزرگسال</label>
+                                <div class="row align-items-center">
+                                    <div class="col-8">
+                                            <select name="ReserveCap" class="form-select" id="selAdult" aria-label="Default select example">
+                                            <!-- <option selected>2</option> -->
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-4">
+                                        <span>نفر</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-start pb-3">
+                                <label for="">تعداد کودکان</label>
+                                <div class="row align-items-center">
+                                    <div class="col-8">
+                                        <select class="form-select" id="selchild" aria-label="Default select example">
+                                            <!-- <option selected>2</option> -->
+                                            <option value="0">0</option>
+                                            <option selected value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            @*<option value="4">4</option>*@
+                                        </select>
+                                    </div>
+                                    <div class="col-4">
+                                        <span>نفر</span>
+                                    </div>
+                                </div>
+                            </div>
+                                <form asp-action="RoomDetail" method="post">
+                                    <label for="discountCode">Discount Code:</label>
+                                    <input type="text" id="discountCode" name="discountCode" />
+
+                                    <button type="submit">Apply Discount</button>
+                                </form>
+
+                                @if (ViewData["FinalAmount"] != null)
+                                {
+                                    <h2>Final Amount: @ViewData["FinalAmount"]</h2>
+                                }
+                                else
+                                {
+                                    <h2>Invalid discount code!</h2>
+                                }
+                            <div class="row text-start mb-3">
+                                <label for="DiscountCode" class="form-label">کد تخفیف</label>
+                                <div class="row">
+                                    <div class="col-9">
+                                        <input type="text" class="form-control text-center" id="DiscountCode" aria-describedby="">
+                                    </div>
+                                    <div class="col-3 ">
+                                        <button type="submit" class="btn btn-secondary ">تایید</button>
+                                    </div>
+                                </div>
+                                <div id="" class="form-text" hidden>تخفیف اعمال شد. </div>
+                            </div>
+                            <div class="text-start">
+                                <label for="">قیمت </label>
+                                <div class="row align-items-center">
+                                    <div class="col-8">
+                                            <input name="ReservePrice" class="text-end form-control" type="text" id="price1" value="" aria-label="2000" readonly>
+                                    </div>
+                                    <div class="col-4">
+                                        <span>تومان</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class=" mt-4 ">
+@*                                    <a 
+                                        asp-controller="Reserves" asp-action="RoomReserve" 
+                                        onclick="savevalues()" class="btn btn-primary px-5 py-2" type="submit"> رزرو اتاق 
+                                    </a>*@
+                                        <a class="btn btn-primary my-1 mx-2 p-2" asp-controller="Rooms" asp-action="Payment" asp-route-id="@Html.DisplayFor(model => model.RoomsID)" > رزرو اتاق </a>
+                                </div>
+
+                            </div>
+
+                          </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@*
+<h1>Details</h1>
+
+<div>
+    <h4>Rooms</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RoomType)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RoomType)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RoomCapacity)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RoomCapacity)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RoomPrice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RoomPrice)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RoomAvail)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RoomAvail)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.RoomsID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>*@
+

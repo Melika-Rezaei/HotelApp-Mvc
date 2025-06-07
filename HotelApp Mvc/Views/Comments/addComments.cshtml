@@ -1,0 +1,104 @@
+﻿@model HotelApp_Mvc.Models.Comments
+
+@*@{
+    Layout = "~/Views/Shared/_";
+}*@
+
+@*<h1>Create</h1>
+
+<h4>Comments</h4>
+<hr />*@
+<div class="container">
+
+    <!-- نظر خود فرد در صورتی که در این اتاق اقامت کند -->
+    <div class="mt-5">
+        <div class="row mt-1 mb-2 text-center">
+
+            <p>
+                لطفا با ثبت نظر، ما را برای ارائه ی خدمات بهتر راهنمایی کنید.
+            </p>
+
+        </div>
+        <div class="row align-items-center justify-content-end">
+            <div class="col-md-5 offset-md-1">
+              <form asp-action="addComments">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    @*<form method="post" asp-controller="Comments" asp-action="UserComments">*@
+                    <div class="col-lg-9">
+                        <label asp-for="NameU" class="form-label">نام و نام خانوادگی: </label>
+                        <input asp-for="NameU" type="text" class="form-control" required>
+                        <span asp-validation-for="NameU" class="text-danger"></span>
+                    </div>
+                    <br>
+                    <div class="mb-3">
+                        <label asp-for="UserEmail" class="form-label">آدرس ایمیل: </label>
+                        <input asp-for="UserEmail" type="email" class="form-control" aria-describedby="emailHelp" placeholder="name@example.com">
+                        <div id="emailHelp" class="form-text">آدرس ایمیل شما در سایت نمایش داده نمی شود</div>
+                        <span asp-validation-for="UserEmail" class="text-danger"></span>
+                    </div>
+                    <div class="my-3">
+                        <label asp-for="StarComment" for="myrange1" class="form-label ">میزان رضایت شما : <span class="text-danger" id="rangeValue"></span> </label>
+                        <input asp-for="StarComment" type="range" class="form-range slider" min="0" max="5" step="0.5" id="myrange1" onchange="myFunction()">
+                        <span asp-validation-for="StarComment" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="UserComment" for="exampleFormControlTextarea1" class="form-label"> نظر شما :</label>
+                        <textarea asp-for="UserComment" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <span asp-validation-for="UserComment" class="text-danger"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" value="addComments">ارسال پیام</button>
+                </form>
+            </div>
+      
+              
+
+                <br>
+            @*</div>*@
+            <div class="col-md-5 ">
+                <img class="img-fluid" src="~/img/Full Inbox _Monochromatic.svg" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+@*<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NameU" class="control-label"></label>
+                <input asp-for="NameU" class="form-control" />
+                <span asp-validation-for="NameU" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserEmail" class="control-label"></label>
+                <input asp-for="UserEmail" class="form-control" />
+                <span asp-validation-for="UserEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserComment" class="control-label"></label>
+                <input asp-for="UserComment" class="form-control" />
+                <span asp-validation-for="UserComment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StarComment" class="control-label"></label>
+                <input asp-for="StarComment" class="form-control" />
+                <span asp-validation-for="StarComment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>*@
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

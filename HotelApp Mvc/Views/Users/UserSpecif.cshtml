@@ -1,0 +1,43 @@
+﻿@model HotelApp_Mvc.Models.Dbase.Users
+
+@{
+    Layout = "~/Views/Shared/_UProfile_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Users</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UserFName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UserFName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UserLName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UserLName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UserCode)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UserCode)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UserNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UserNumber)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.UsersID">ویرایش مشخصات </a> 
+    @*<a asp-action="Index">Back to List</a>*@
+</div>
+

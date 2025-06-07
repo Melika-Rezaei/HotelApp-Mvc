@@ -1,0 +1,55 @@
+﻿@page
+@model HotelApp_Mvc.Views.Payment.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Admin_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Payment[0].PayStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Payment[0].PayCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Payment[0].PayDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Payment[0].reserve)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Payment) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PayStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PayCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PayDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.reserve.ReserveID)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.PaymentID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.PaymentID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.PaymentID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

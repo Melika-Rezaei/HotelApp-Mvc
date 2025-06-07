@@ -1,0 +1,51 @@
+﻿@model HotelApp_Mvc.Models.Dbase.Rooms
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Admin_Layout.cshtml";
+}
+
+<h1>ویرایش جزئیات اتاق </h1>
+
+@*<h4>Rooms</h4>*@
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="RoomsID" />
+            <div class="form-group py-1">
+                <label asp-for="RoomType" class="control-label">نوع اتاق</label>
+                <input asp-for="RoomType" class="form-control" />
+                <span asp-validation-for="RoomType" class="text-danger"></span>
+            </div>
+            <div class="form-group py-1">
+                <label asp-for="RoomCapacity" class="control-label">ظرفیت</label>
+                <input asp-for="RoomCapacity" class="form-control" />
+                <span asp-validation-for="RoomCapacity" class="text-danger"></span>
+            </div>
+            <div class="form-group py-1">
+                <label asp-for="RoomPrice" class="control-label">قیمت</label>
+                <input asp-for="RoomPrice" class="form-control" />
+                <span asp-validation-for="RoomPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check py-1">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="RoomAvail" /> 
+                    @*@Html.DisplayNameFor(model => model.RoomAvail)*@ دسترسی 
+                </label>
+            </div>
+            <div class="form-group py-1">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">بازگشت به لیست اتاق ها</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

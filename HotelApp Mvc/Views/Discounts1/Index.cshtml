@@ -1,0 +1,50 @@
+﻿@page
+@*@model HotelApp_Mvc.Models.Dbase.Discount *@
+@model HotelApp_Mvc.Views.Discounts1.IndexModel
+@*IndexModel*@
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Discount[0].DiscountCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Discount[0].FinishDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Discount[0].DisPercent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Discount[0].DiscountEnabled)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Discount) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiscountCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FinishDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DisPercent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiscountEnabled)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.DiscountID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.DiscountID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.DiscountID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

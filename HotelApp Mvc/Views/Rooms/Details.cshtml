@@ -1,0 +1,43 @@
+﻿@model HotelApp_Mvc.Models.Dbase.Rooms
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Admin_Layout.cshtml";
+}
+
+<h1>جزئیات</h1>
+
+<div>
+    <h4>اتاق ها</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-3 py-1">
+            @Html.DisplayNameFor(model => model.RoomType) | نوع اتاق
+        </dt>
+        <dd class = "col-sm-9 py-1">
+            @Html.DisplayFor(model => model.RoomType)
+        </dd>
+        <dt class = "col-sm-3 py-1">
+            @Html.DisplayNameFor(model => model.RoomCapacity) | ظرفیت
+        </dt>
+        <dd class = "col-sm-9 py-1">
+            @Html.DisplayFor(model => model.RoomCapacity)
+        </dd>
+        <dt class = "col-sm-3 py-1">
+            @Html.DisplayNameFor(model => model.RoomPrice) | قیمت
+        </dt>
+        <dd class = "col-sm-9 py-1">
+            @Html.DisplayFor(model => model.RoomPrice)
+        </dd>
+        <dt class = "col-sm-3 py-1">
+            @Html.DisplayNameFor(model => model.RoomAvail) | دسترسی
+        </dt>
+        <dd class = "col-sm-9 py-1">
+            @Html.DisplayFor(model => model.RoomAvail)
+        </dd>
+    </dl>
+</div>
+<div class="pt-2">
+    <a asp-action="Edit" asp-route-id="@Model?.RoomsID">ویرایش</a> |
+    <a asp-action="Index">بازگشت به لیست اتاق ها</a>
+</div>

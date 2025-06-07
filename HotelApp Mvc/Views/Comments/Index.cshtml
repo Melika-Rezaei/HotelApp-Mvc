@@ -1,0 +1,60 @@
+﻿@model IEnumerable<HotelApp_Mvc.Models.Comments>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Admin_Layout.cshtml";
+}
+
+<h1>لیست نظرات </h1>
+
+<p>
+    <a asp-action="Create">ایجاد نظر</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NameU) | اسم کاربر
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserEmail) | ایمیل کاربر
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserComment) | نظر
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.StarComment)*@ میزان رضایت
+            </th>
+            <th>
+                تایید نظر
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameU)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserComment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StarComment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.acceptCom)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CommentsId">ویرایش</a> |
+                <a asp-action="Details" asp-route-id="@item.CommentsId">جزئیات</a> |
+                <a asp-action="Delete" asp-route-id="@item.CommentsId">حذف</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

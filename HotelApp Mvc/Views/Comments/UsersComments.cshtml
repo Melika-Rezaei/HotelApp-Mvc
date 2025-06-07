@@ -1,0 +1,136 @@
+﻿@*@model Comments*@
+@*@model List<CommentsModel>*@
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div class="container">
+    <!-- نظر مهمان این اتاق -->
+@*    <div class="mb-3">
+        <div>
+            <h4 class="text-center fw-bold">
+                <i class="fa fa-comments-o" aria-hidden="true"></i>
+                نظرات
+                <!-- <i class="fa fa-comments-o" aria-hidden="true"></i> -->
+            </h4>
+        </div>
+        <div class="my-3 py-3">
+            <div class="card">
+                <div class="card-header bg-primary">
+                    <span>نام نویسنده: </span>
+                    <span class=""> احمد امیری</span>
+                </div>
+                <p class="card-title text-dark ms-3 mt-3">
+                    <span> میزان رضایت : </span>
+                    <span class="text-success fw-bold fs-5">4.5</span>
+                    <span>از 5 </span>
+                </p>
+                <div class="card-body">
+                    با رزرو این اتاق هتل، شما مطمئن خواهید بود که در یک محل آسوده و راحت می خوابید و لذت  خواهید برد.
+                </div>
+            </div>
+        </div>
+        <div class="my-3 py-3">
+            <div class="card">
+                <div class="card-header bg-info">
+                    <span>نام نویسنده: </span>
+                    <span class=""> ساناز امیری</span>
+                </div>
+                <p class="card-title text-dark ms-3 mt-3">
+                    <span> میزان رضایت : </span>
+                    <span class="text-success fw-bold fs-5">4</span>
+                    <span>از 5 </span>
+                </p>
+                <div class="card-body">
+                    در کل خوب بود ولی اتاقی که من در آن اقامت داشتم، کولرش به خوبی کار نمیکرد و خیلی گرم بود.
+                </div>
+            </div>
+        </div>*@
+ @*       @if (Model != null)
+        {
+            @foreach (var item in Model)
+            {
+                <div class="my-3 py-3">
+                    <div class="card">
+                        <div class="card-header bg-info">
+                            <span>نام نویسنده: </span>
+                            <span class=""> @item.NameU </span>
+                        </div>
+                        <p class="card-title text-dark ms-3 mt-3">
+                            <span> میزان رضایت : </span>
+                            <span class="text-success fw-bold fs-5">@item.StarComment</span>
+                            <span>از 5 </span>
+                        </p>
+                        <div class="card-body">
+                            @item.UserComment
+                        </div>
+                    </div>
+                </div>
+            }
+        }*@
+@*    </div>*@
+
+    <partial name="ShowComments"/>
+
+    <partial name="addComments" />
+    <!-- نظر خود فرد در صورتی که در این اتاق اقامت کند -->
+ @*   <div class="mt-5">
+        <div class="row text-center">
+
+            <p>
+                لطفا با ثبت نظر، ما را برای ارائه ی خدمات بهتر راهنمایی کنید.
+            </p>
+
+        </div>
+        <div class="row align-items-center justify-content-end">
+            <div class="col-md-5">
+                <form method="post" asp-controller="Comments" asp-action="UserComments">
+                    <div class="col-lg-9">
+                        <label asp-for="NameU" class="form-label">نام و نام خانوادگی: </label>
+                        <input asp-for="NameU" type="text" class="form-control" required>
+                    </div>
+                    <br>
+                    <div class="mb-3">
+                        <label asp-for="UserEmail" class="form-label">آدرس ایمیل: </label>
+                        <input asp-for="UserEmail" type="email" class="form-control" aria-describedby="emailHelp" placeholder="name@example.com">
+                        <div id="emailHelp" class="form-text">آدرس ایمیل شما در سایت نمایش داده نمی شود</div>
+                    </div>
+                    <div class="my-3">
+                        <label for="myrange1" class="form-label ">میزان رضایت شما : <span class="text-danger" id="rangeValue"></span> </label>
+                        <input type="range" class="form-range slider" min="0" max="5" step="0.5" id="myrange1" onchange="myFunction()">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label"> نظر شما :</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">ارسال پیام</button>
+                </form>*@
+                @*            <form method="post" asp-controller="Friends" asp-action="NewPage">
+                <div class="mb-3">
+                <label asp-for="Name" class="form-label">Name: </label>
+                <input asp-for="Name" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                <label asp-for="Number" class="form-label">Number: </label>
+                <input asp-for="Number" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                <label asp-for="Image" class="form-label">Image Url: </label>
+                <input asp-for="Image" class="form-control">
+                </div>
+
+                <button type="submit" class="btn btn-secondary">Submit</button>
+                </form>*@
+@*                <br>
+            </div>
+            <div class="col-md-5 offset-md-2">
+                <img class="img-fluid" src=".././img/Full Inbox _Monochromatic.svg" alt="">
+            </div>
+        </div>
+    </div>*@
+</div>

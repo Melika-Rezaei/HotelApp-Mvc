@@ -1,0 +1,54 @@
+﻿@model IEnumerable<HotelApp_Mvc.Models.Dbase.Discount>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Admin_Layout.cshtml";
+}
+
+<h1>لیست تخفیف ها</h1>
+
+<p>
+    <a asp-action="Create">ایجاد کد تخفیف جدید</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DiscountCode) | کد تخفیف
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FinishDate) | تاریخ پایان
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DisPercent) | درصد تخفیف
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DiscountEnabled) | دسترسی
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiscountCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FinishDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DisPercent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiscountEnabled)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.DiscountID">Edit / ویرایش</a> |
+                <a asp-action="Details" asp-route-id="@item.DiscountID">Details / جزئیات</a> |
+                <a asp-action="Delete" asp-route-id="@item.DiscountID">Delete / حذف</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

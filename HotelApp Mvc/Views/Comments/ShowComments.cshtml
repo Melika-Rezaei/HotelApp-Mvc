@@ -1,0 +1,78 @@
+﻿@model IEnumerable<HotelApp_Mvc.Models.Comments>
+
+<div class="container">
+  <div class="mb-3">
+    <div>
+        <h4 class="text-center fw-bold pt-2 pb-3">
+            <i class="fa fa-comments-o" aria-hidden="true"></i>
+            نظرات
+        </h4>
+    </div>
+@*    <div class="my-3 py-3">
+        <div class="card">
+            <div class="card-header bg-primary">
+                <span>نام نویسنده: </span>
+                <span class=""> احمد امیری</span>
+            </div>
+            <p class="card-title text-dark ms-3 mt-3">
+                <span> میزان رضایت : </span>
+                <span class="text-success fw-bold fs-5">4.5</span>
+                <span>از 5 </span>
+            </p>
+            <div class="card-body">
+                با رزرو این اتاق هتل، شما مطمئن خواهید بود که در یک محل آسوده و راحت می خوابید و لذت  خواهید برد.
+            </div>
+        </div>
+    </div>*@
+@*    <div class="my-3 py-3">
+        <div class="card">
+            <div class="card-header bg-info">
+                <span>نام نویسنده: </span>
+                <span class=""> ساناز امیری</span>
+            </div>
+            <p class="card-title text-dark ms-3 mt-3">
+                <span> میزان رضایت : </span>
+                <span class="text-success fw-bold fs-5">4</span>
+                <span>از 5 </span>
+            </p>
+            <div class="card-body">
+                در کل خوب بود ولی اتاقی که من در آن اقامت داشتم، کولرش به خوبی کار نمیکرد و خیلی گرم بود.
+            </div>
+        </div>
+    </div>*@
+
+    @foreach(var item in Model)
+    {
+        @if (item.acceptCom == true){
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                    <div class="my-3 py-3 ">
+                        <div class="card">
+                            <div class="card-header bg-info">
+                                <span>نام نویسنده: </span>
+                                <span class=""> @Html.DisplayFor(modelItem => item.NameU) </span>
+                            </div>
+                            <p class="card-title text-dark ms-3 mt-3">
+                                <span> میزان رضایت : </span>
+                                <span class="text-success fw-bold fs-5"> @Html.DisplayFor(modelItem => item.StarComment) </span>
+                                <span>از 5 </span>
+                            </p>
+                            <div class="card-body">
+                                @Html.DisplayFor(modelItem => item.UserComment)
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        }
+    }
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <div class="border border-secondary-subtle rounded py-4 text-center">
+                <p class="mb-3 mx-2"> شما هم می خواهید نظری را ثبت کنید ؟  </p>
+                 <a class="btn btn-primary " asp-controller="Comments" asp-action="addComments"> ثبت نظر </a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

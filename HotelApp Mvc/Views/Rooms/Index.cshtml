@@ -1,0 +1,54 @@
+﻿@model IEnumerable<HotelApp_Mvc.Models.Dbase.Rooms>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Admin_Layout.cshtml";
+}
+
+<h1>لیست اتاق ها</h1>
+
+<p>
+    <a asp-action="Create">افزودن اتاق جدید</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomType) | نوع اتاق
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomCapacity) | ظرفیت
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomPrice) | قیمت
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomAvail) | دسترسی
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoomType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoomCapacity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoomPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoomAvail)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.RoomsID">ویرایش</a> |
+                <a asp-action="Details" asp-route-id="@item.RoomsID">جزئیات</a> |
+                <a asp-action="Delete" asp-route-id="@item.RoomsID">حذف</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
